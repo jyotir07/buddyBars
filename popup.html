@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DuoTrack - Study Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>DuoTrack - Study Hours Tracker</h2>
+
+      <!-- Room Code Input -->
+      <div class="room-section">
+        <input type="text" id="roomCode" placeholder="Enter Room Code" />
+        <button id="connectBtn">Connect</button>
+      </div>
+
+      <!-- Study Buttons -->
+      <div class="buttons">
+        <button id="startBtn">Start Studying</button>
+        <button id="endBtn" disabled>End Studying</button>
+      </div>
+
+      <!-- Progress Bars -->
+      <div class="progress-section">
+        <h3>Your Progress</h3>
+        <div class="progress-bar">
+          <div id="yourProgress" class="progress-fill"></div>
+        </div>
+        <span id="yourHours">0 hrs</span>
+
+        <h3>Friend's Progress</h3>
+        <div class="progress-bar">
+          <div id="friendProgress" class="progress-fill"></div>
+        </div>
+        <span id="friendHours">0 hrs</span>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
