@@ -1,38 +1,26 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import database from "./firebase.js";
+import {
+  ref,
+  set,
+  onValue,
+} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAvp5LN_NVHpo5agYrm6FaOukgWTZzU8w8",
-  authDomain: "buddybars-c9915.firebaseapp.com",
-  databaseURL: "https://buddybars-c9915-default-rtdb.firebaseio.com",
-  projectId: "buddybars-c9915",
-  storageBucket: "buddybars-c9915.firebasestorage.app",
-  messagingSenderId: "223283177016",
-  appId: "1:223283177016:web:1d09bb5d6df854f1bc28cd",
-  measurementId: "G-5E71RXW1LS",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-
+//DOM elements
 const startBtn = document.getElementById("startBtn");
 const endBtn = document.getElementById("endBtn");
 const mineProgress = document.getElementById("mine-progress");
 const friendProgress = document.getElementById("friend-progress");
 const roomCodeInput = document.getElementById("roomCode");
+
+//timmer and state vars
 let studyTimer = null;
 let studyDuration = 0;
-
 let roomCode = "defaultRoom";
 
-const studyHoursRef = ref(database, "rooms/" + roomCode);
+//ref to the study hours in realtime db
+const studyHoursRef = ref(database, "rooms/" + roomCode + "/studyHours");
 
+//syncing progress bars in realtime
 onValue(studyHoursRef, (snapshot) => {
   const data = snapshot.val();
   if (data) {
@@ -41,7 +29,7 @@ onValue(studyHoursRef, (snapshot) => {
   }
 });
 
-function updateStudyHours(user, hours) {
+function updateStudyHours(user, hours) { //updating study hours in fb
   set(ref(database, "rooms/" + roomCode + "/studyHours/" + user), {
     hours: hours,
   });
