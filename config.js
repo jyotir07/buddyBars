@@ -1,8 +1,13 @@
+require("dotenv").config();
+
+//using .env for sensetive info
+const api_key = process.env.API_KEY;
+const dbUrl = process.env.BASE_URL;
 // Firebase Configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAvp5LN_NVHpo5agYrm6FaOukgWTZzU8w8",
+  apiKey: api_key,
   authDomain: "buddybars-c9915.firebaseapp.com",
-  databaseURL: "https://buddybars-c9915-default-rtdb.firebaseio.com",
+  databaseURL: dbUrl,
   projectId: "buddybars-c9915",
   storageBucket: "buddybars-c9915.firebasestorage.app",
   messagingSenderId: "223283177016",
