@@ -12,13 +12,12 @@
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
-  "permissions": [
-    "storage"
-  ],
-  "host_permissions": [
-    "https://*.firebaseio.com/*"
-  ],
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["https://*.firebaseio.com/*"],
   "background": {
     "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' https://www.gstatic.com https://www.googleapis.com; object-src 'self'"
   }
 }

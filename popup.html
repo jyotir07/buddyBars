@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DuoTrack - Study Tracker</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"></script>
+    <script src="popup.js"></script>
   </head>
   <body>
     <div class="container">
@@ -30,14 +33,13 @@
         </div>
         <span id="yourHours">0 hrs</span>
 
-        <h3>Friend's Progress</h3>
+        <h3>Their Progress</h3>
         <div class="progress-bar">
           <div id="friendProgress" class="progress-fill"></div>
         </div>
         <span id="friendHours">0 hrs</span>
       </div>
     </div>
-
     <script src="popup.js"></script>
   </body>
 </html>
